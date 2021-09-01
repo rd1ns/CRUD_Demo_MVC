@@ -1,0 +1,46 @@
+﻿@model IEnumerable<CRUD_Demo_MVC.Models.tblUser>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<center><h2>Ana Sayfa</h2></center>
+
+<p>
+    @Html.ActionLink("Yeni Ekle", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.address)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Detay", "Details", new { id = item.id }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.id })
+            </td>
+        </tr>
+    }
+
+</table>
